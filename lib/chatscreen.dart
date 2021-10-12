@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 
 class Chat extends StatelessWidget {
-  const Chat({Key? key}) : super(key: key);
 
+  List<String> usernames = ['Ali','Ahmad','Hassan','Zain','Hasnain','Adil','Areeha','Amina','komal','Laiba'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,23 +14,40 @@ class Chat extends StatelessWidget {
       backgroundColor: Colors.grey.shade300,
       body: Container(
         margin: const EdgeInsets.all(2.0),
-        child: ListView(
-
-          children: <Widget>[
-            customCard(title: 'Abdul Rehman',subTitle: 'Hello',lastSeen: '5min ago',imageUrl: 'assets/images/user-1.jpg'),
-            customCard(title: 'M. Zain',subTitle: 'How are you',lastSeen: '2min ago',imageUrl: 'assets/images/user-1.jpg'),
-            customCard(title: 'Abdul Rehman',subTitle: 'Hello',lastSeen: '5min ago',imageUrl: 'assets/images/user-1.jpg'),
-            customCard(title: 'Abdul Rehman',subTitle: 'Hello',lastSeen: '5min ago',imageUrl: 'assets/images/user-1.jpg'),
-            customCard(title: 'Abdul Rehman',subTitle: 'Hello',lastSeen: '5min ago',imageUrl: 'assets/images/user-1.jpg'),
-            customCard(title: 'Abdul Rehman',subTitle: 'Hello',lastSeen: '5min ago',imageUrl: 'assets/images/user-1.jpg'),
-            customCard(title: 'Abdul Rehman',subTitle: 'Hello',lastSeen: '5min ago',imageUrl: 'assets/images/user-1.jpg'),
-            customCard(title: 'Abdul Rehman',subTitle: 'Hello',lastSeen: '5min ago',imageUrl: 'assets/images/user-1.jpg'),
-            customCard(title: 'Abdul Rehman',subTitle: 'Hello',lastSeen: '5min ago',imageUrl: 'assets/images/user-1.jpg'),
-            customCard(title: 'Abdul Rehman',subTitle: 'Hello',lastSeen: '5min ago',imageUrl: 'assets/images/user-1.jpg'),
-            customCard(title: 'Abdul Rehman',subTitle: 'Hello',lastSeen: '5min ago',imageUrl: 'assets/images/user-1.jpg'),
-            customCard(title: 'Abdul Rehman',subTitle: 'Hello',lastSeen: '5min ago',imageUrl: 'assets/images/user-1.jpg'),
-          ],
-        )
+        child: ListView.builder(
+            itemCount: usernames.length,
+            itemBuilder: (context, index)
+                {
+                  if(usernames.length != 0) {
+                    return customCard(
+                      imageUrl: 'assets/images/user-1.jpg',
+                      title: '${usernames[index]}',
+                      subTitle: '$index',
+                    );
+                  }
+                  else
+                    {
+                      return CircularProgressIndicator();
+                    }
+                }
+        ),
+        // child: ListView(
+        //
+        //   children: <Widget>[
+        //     customCard(title: 'Abdul Rehman',subTitle: 'Hello',lastSeen: '5min ago',imageUrl: 'assets/images/user-1.jpg'),
+        //     customCard(title: 'M. Zain',subTitle: 'How are you',lastSeen: '2min ago',imageUrl: 'assets/images/user-1.jpg'),
+        //     customCard(title: 'Abdul Rehman',subTitle: 'Hello',lastSeen: '5min ago',imageUrl: 'assets/images/user-1.jpg'),
+        //     customCard(title: 'Abdul Rehman',subTitle: 'Hello',lastSeen: '5min ago',imageUrl: 'assets/images/user-1.jpg'),
+        //     customCard(title: 'Abdul Rehman',subTitle: 'Hello',lastSeen: '5min ago',imageUrl: 'assets/images/user-1.jpg'),
+        //     customCard(title: 'Abdul Rehman',subTitle: 'Hello',lastSeen: '5min ago',imageUrl: 'assets/images/user-1.jpg'),
+        //     customCard(title: 'Abdul Rehman',subTitle: 'Hello',lastSeen: '5min ago',imageUrl: 'assets/images/user-1.jpg'),
+        //     customCard(title: 'Abdul Rehman',subTitle: 'Hello',lastSeen: '5min ago',imageUrl: 'assets/images/user-1.jpg'),
+        //     customCard(title: 'Abdul Rehman',subTitle: 'Hello',lastSeen: '5min ago',imageUrl: 'assets/images/user-1.jpg'),
+        //     customCard(title: 'Abdul Rehman',subTitle: 'Hello',lastSeen: '5min ago',imageUrl: 'assets/images/user-1.jpg'),
+        //     customCard(title: 'Abdul Rehman',subTitle: 'Hello',lastSeen: '5min ago',imageUrl: 'assets/images/user-1.jpg'),
+        //     customCard(title: 'Abdul Rehman',subTitle: 'Hello',lastSeen: '5min ago',imageUrl: 'assets/images/user-1.jpg'),
+        //   ],
+        // )
       )
 
     );
